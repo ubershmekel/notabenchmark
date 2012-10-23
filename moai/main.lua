@@ -1,9 +1,3 @@
-----------------------------------------------------------------
--- Copyright (c) 2010-2011 Zipline Games, Inc. 
--- All Rights Reserved. 
--- http://getmoai.com
-----------------------------------------------------------------
-
 width, height = 320, 480
 spriteRadius = 64
 
@@ -34,11 +28,6 @@ function demo(n)
     end
 end
 
---demo(3)
---demo(4)
---demo(5)
-
-gameOver = false
 iterationFrames = 90
 
 mainThread = MOAICoroutine.new ()
@@ -49,7 +38,7 @@ mainThread:run (
         local times = {}
         local start = os.clock()
         demo(1)
-        while not gameOver do
+        while true do
             coroutine.yield ()
             frames = frames + 1
             
@@ -62,7 +51,7 @@ mainThread:run (
                 print(n,  fps .. " fps")
                 n = n * 2
                 layer:clear()
-                if fps < 15 then
+                if fps < 10 then
                     break
                 end
                 start = os.clock()
@@ -78,25 +67,7 @@ mainThread:run (
                 break
             end
         end
-
-        local font = MOAIFont.new ()
-        font:loadFromTTF ( "wizard.ttf", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.?! ", 12, 163 )
-
-        --for i,v in ipairs(times) do
-        --    print(2 ^ i, v)
-        --end
-            
-        local textbox = MOAITextBox.new ()
-        textbox:setFont ( font )
-        --textbox:setTextSize ( font:getScale ())
-        textbox:setRect ( -160, -80, 160, 80 )
-        textbox:setAlignment ( MOAITextBox.CENTER_JUSTIFY )
-        textbox:setYFlip ( true )
-        textbox:setString ( "You are dead!" )
-        layer:insertProp ( textbox )
-        textbox:spool ()
-        os.exit()
-   end
+    end
 )
 
 
