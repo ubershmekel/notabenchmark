@@ -1,5 +1,5 @@
 width, height = 320, 480
-spriteRadius = 64
+spriteRadius = 32
 
 MOAISim.openWindow ( "test", width, height )
 

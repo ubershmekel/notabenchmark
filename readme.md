@@ -7,6 +7,8 @@ a benchmark? Well, because a better benchmark would have a more varied
 test set. Also, you should really compare the tools and documentation as
 they can make or break the value you get from an engine or framework.
 
+Please do raise issues and pull requests.
+
 Tested on Windows 7
 -----------------
 Number of Sprites, fps
@@ -48,4 +50,11 @@ Corona Results:
     8192    18.274111675127 fps
     16384   9.8651759289707 fps
 
+
+
+Screenshots
+------------
+![Corona bench](http://i.imgur.com/IE4wG.png "Corona bench.")
+
+![MOAI bench](http://i.imgur.com/umxmV.png "MOAI bench.")
 
