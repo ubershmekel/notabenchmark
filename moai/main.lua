@@ -45,13 +45,14 @@ mainThread:run (
     function ()
         local frames = 0
         local n = 1
-        local start = os.clock()
         local times = {}
+        local start = os.clock()
+        demo(1)
         while not gameOver do
             coroutine.yield ()
             frames = frames + 1
             
-            if frames % 90 == 1 then
+            if frames % 90 == 0 then
                 -- 90 frames should take 3 seconds of simulation,
                 -- 10 fps is when things suck
                 local duration = os.clock() - start
