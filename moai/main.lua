@@ -39,6 +39,7 @@ end
 --demo(5)
 
 gameOver = false
+iterationFrames = 90
 
 mainThread = MOAICoroutine.new ()
 mainThread:run (
@@ -52,17 +53,18 @@ mainThread:run (
             coroutine.yield ()
             frames = frames + 1
             
-            if frames % 90 == 0 then
+            if frames % iterationFrames == 0 then
                 -- 90 frames should take 3 seconds of simulation,
                 -- 10 fps is when things suck
                 local duration = os.clock() - start
+                local fps = iterationFrames / duration
                 --table.insert(times, duration)
-                print(n, duration)
-                if duration > 9 then
-                    break
-                end
+                print(n,  fps .. " fps")
                 n = n * 2
                 layer:clear()
+                if fps < 15 then
+                    break
+                end
                 start = os.clock()
                 demo(n)
             else
